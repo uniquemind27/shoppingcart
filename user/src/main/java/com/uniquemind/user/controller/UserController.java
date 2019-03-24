@@ -46,7 +46,7 @@ public class UserController {
 		this.userService = userService;
 	}
 	
-	@PostMapping("/")
+	@PostMapping("")
 	public ResponseEntity<User> registerUser(@RequestBody User user) throws UserAlreadyFoundException {
 		logger.info("Registering an User");
 		try {

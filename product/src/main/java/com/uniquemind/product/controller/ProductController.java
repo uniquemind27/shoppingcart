@@ -48,7 +48,7 @@ public class ProductController {
 	public ProductController() {
 	}
 	
-	@PostMapping(path="/")
+	@PostMapping(path="")
 	public ResponseEntity<Product> registerProduct(@RequestBody Product product)throws ProductAlreadyExistsException{
 		logger.info("Registering an Product");
 		try {
