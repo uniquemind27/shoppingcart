@@ -26,12 +26,12 @@ public class User {
     private String email;
 	
     @Column(name = "mobile", unique = true, nullable = false)
-	private int mobile;
+	private String mobile;
 	
 	public User() {
 	}
 
-	public User(int userId, String name, String email, int mobile) {
+	public User(int userId, String name, String email, String mobile) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -63,11 +63,11 @@ public class User {
 		this.email = email;
 	}
 
-	public int getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
