@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.uniquemind.order.exception.OrderFailureException;
 import com.uniquemind.order.exception.OrderNotFoundException;
 import com.uniquemind.order.exception.ProductNotFoundException;
@@ -90,6 +91,7 @@ public class OrderController {
 		return responseEntity;
 	}
 	
+	@HystrixCommand(fallbackMethod="orderFallback")
 	@GetMapping("/{id}")
 	public ResponseEntity<Order> findOrder(@PathVariable("id")int id) throws OrderNotFoundException{
 		logger.info("Fetching an Order");
@@ -102,6 +104,7 @@ public class OrderController {
 		}
 		return responseEntity;
 	}
+	
 	
 	@GetMapping("/all")
 	public List<Order> findAllOrders() throws OrderNotFoundException{
@@ -117,4 +120,8 @@ public class OrderController {
 		return orders;
 	}
 
+	private ResponseEntity<Order> orderFallback(int id) {
+		responseEntity = new ResponseEntity<Order>(HttpStatus.SERVICE_UNAVAILABLE);
+	    return responseEntity;
+	  }
 }

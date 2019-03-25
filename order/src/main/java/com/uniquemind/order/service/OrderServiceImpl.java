@@ -28,12 +28,10 @@ public class OrderServiceImpl implements OrderService{
 		this.orderRepository = orderRepository;
 	}
 
-
 	@Override
 	public Order saveOrder(Order order) throws OrderFailureException {
 		return orderRepository.save(order);
 	}
-
 
 	@Override
 	public Order findByOrderId(int id) throws OrderNotFoundException {
@@ -44,10 +42,8 @@ public class OrderServiceImpl implements OrderService{
 		return optional.get();
 	}
 
-
 	@Override
 	public List<Order> findAllOrders() throws OrderNotFoundException {
 		return orderRepository.findAll();
 	}
-	
 }
