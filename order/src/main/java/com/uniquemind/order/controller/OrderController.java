@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.uniquemind.order.exception.OrderFailureException;
@@ -61,24 +62,21 @@ public class OrderController {
 	public ResponseEntity<Order> placeOrder(@RequestBody Order order) throws OrderFailureException, UserNotFoundException, ProductNotFoundException{
 		logger.info("Placing an Order");
 		
-//		HttpHeaders headers = new HttpHeaders();
-//	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-//	    HttpEntity<Product> entity = new HttpEntity<Product>(,headers);
-	      
-		
 		logger.info("Calling the product service to check on the productid "+order.getProductId());
 		String  productURL = "http://localhost:9070/api/v1/products/"+order.getProductId();
-	    ResponseEntity<Product> productEntity = restTemplate.exchange(productURL, HttpMethod.GET, null, Product.class);
-	    logger.info("product id check successful "+productEntity.getStatusCodeValue());
-	    if(!productEntity.getStatusCode().is2xxSuccessful()){
+	    try {
+	    	ResponseEntity<Product> productEntity = restTemplate.exchange(productURL, HttpMethod.GET, null, Product.class);
+	    	logger.info("product id check successful "+productEntity.getStatusCodeValue());
+	    }catch(HttpClientErrorException e) {
 	    	throw new ProductNotFoundException();
 	    }
 	    
 		logger.info("Calling the user service to check on the userid "+order.getUserId());
 		String userURL = "http://localhost:9080/api/v1/users/"+order.getUserId();
-	    ResponseEntity<User> userEntity = restTemplate.exchange(userURL, HttpMethod.GET, null, User.class);
-	    logger.info("user id check successful "+userEntity.getStatusCodeValue());
-	    if(!userEntity.getStatusCode().is2xxSuccessful()){
+	    try{
+	    	ResponseEntity<User> userEntity = restTemplate.exchange(userURL, HttpMethod.GET, null, User.class);
+	    	logger.info("user id check successful "+userEntity.getStatusCodeValue());
+	    } catch (HttpClientErrorException e) {
 	    	throw new UserNotFoundException();
 	    }
 	    
