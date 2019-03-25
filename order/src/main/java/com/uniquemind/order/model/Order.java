@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Nag
  *
  */
 @Entity
+@Table(name="orders")
 public class Order {
 	
 	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -22,8 +24,8 @@ public class Order {
 	@Column(name = "userId", nullable = false)
 	private int userId;
 	
-	@Column(name = "productID", nullable = false)
-	private int productID;
+	@Column(name = "productId", nullable = false)
+	private int productId;
 	
 	@Column(name = "orderStatus", nullable = false)
 	private String orderStatus;
@@ -34,6 +36,16 @@ public class Order {
 	private int orderCost;
 	
 	public Order() {
+	}
+	
+	public Order(int orderId, int userId, int productId, String orderStatus, String payChannel, int orderCost) {
+		super();
+		this.orderId = orderId;
+		this.userId = userId;
+		this.productId = productId;
+		this.orderStatus = orderStatus;
+		this.payChannel = payChannel;
+		this.orderCost = orderCost;
 	}
 
 	public int getOrderId() {
@@ -76,12 +88,12 @@ public class Order {
 		this.userId = userId;
 	}
 
-	public int getProductID() {
-		return productID;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setProductID(int productID) {
-		this.productID = productID;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 }
