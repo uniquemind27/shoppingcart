@@ -19,4 +19,5 @@ public interface ProductService {
 	Product findByProductId(int id) throws ProductNotFoundException;
 	void deleteByProductId(int id) throws ProductNotFoundException;
 	List<Product> findAllProducts() throws ProductNotFoundException;
+//	Product updateProduct(int id) throws ProductNotFoundException;
 }

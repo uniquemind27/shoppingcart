@@ -26,6 +26,7 @@ import com.uniquemind.order.exception.OrderFailureException;
 import com.uniquemind.order.exception.OrderNotFoundException;
 import com.uniquemind.order.exception.ProductNotFoundException;
 import com.uniquemind.order.exception.UserNotFoundException;
+import com.uniquemind.order.model.Cart;
 import com.uniquemind.order.model.Order;
 import com.uniquemind.order.model.Product;
 import com.uniquemind.order.model.User;
@@ -87,6 +88,16 @@ public class OrderController {
 		}
 		catch(OrderFailureException e) {
 			throw new OrderFailureException();
+		}
+		if(responseEntity.getStatusCode().is2xxSuccessful()) {
+			logger.info("Calling the cart service to delete using userid "+order.getUserId());
+			String cartURL = "http://localhost:9060/api/v1/cart/"+order.getUserId();
+		    try{
+		    	ResponseEntity<Cart> cartEntity = restTemplate.exchange(cartURL, HttpMethod.DELETE, null, Cart.class);
+		    	logger.info("cart deleted successfully "+cartEntity.getStatusCodeValue());
+		    } catch (HttpClientErrorException e) {
+		    	throw new UserNotFoundException();
+		    }
 		}
 		return responseEntity;
 	}

@@ -52,4 +52,10 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findAll();
 	}
 
+//	@Override
+//	public Product updateProduct(int id) throws ProductNotFoundException {
+//		productRepository.save(id)
+//		return null;
+//	}
+
 }
