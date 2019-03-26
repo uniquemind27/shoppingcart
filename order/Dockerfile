@@ -1,7 +1,7 @@
 # This image is based on the official Java 8.
 FROM java:8
 # Which version of the service should this image use
-ARG artifact_version
+#ARG artifact_version
 # Copy our application jar file from the target dir to the container
 # If no version has been provided, this statement will fail the build.
 ADD target/order-0.0.1-SNAPSHOT.jar /usr/share/app.jar
