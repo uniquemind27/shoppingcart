@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "58b5aa6e-57be-4b6f-9193-60404ecc7c1d",
+		"name": "ShoppingCart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserCreation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"id\":1,\n\t\"name\":\"sample1\",\n\t\"email\":\"avb@hjg.com\",\n\t\"mobile\":\"0987652321\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9080/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				},
+				"description": "UserCreation"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9080/api/v1/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"all"
+					]
+				},
+				"description": "Fetch all users"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9080/api/v1/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1"
+					]
+				},
+				"description": "Deleting User"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch one user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9080/api/v1/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1"
+					]
+				},
+				"description": "Fetching an user"
+			},
+			"response": []
+		},
+		{
+			"name": "ProductCreation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productId\":1,\n\t\"productName\":\"Pen\",\n\t\"productPrice\":50,\n\t\"category\":\"Stationery\",\n\t\"stock\":200\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9070/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				},
+				"description": "Adding Products"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9070/api/v1/products/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"all"
+					]
+				},
+				"description": "Get All Products"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch one product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9070/api/v1/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				},
+				"description": "Get Product by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9070/api/v1/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9070",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				},
+				"description": "Delete Product"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/orders/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"all"
+					]
+				},
+				"description": "Fetching all orders"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"1"
+					]
+				},
+				"description": "Fetching an order"
+			},
+			"response": []
+		},
+		{
+			"name": "OrderCreation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"orderId\":1,\n\t\"userId\":1,\n\t\"productId\":1,\n\t\"orderStatus\":\"Completed\",\n\t\"payChannel\":\"GPAY\",\n\t\"orderCost\":500\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				},
+				"description": "Placing an order"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cartId\":1,\n\t\"userId\":1,\n\t\"productId\":1,\n\t\"productQuantity\":20,\n\t\"cartCost\":300\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9060/api/v1/cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9060",
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					]
+				},
+				"description": "Adding to your cart"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9060/api/v1/cart/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9060",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"1"
+					]
+				},
+				"description": "Deleting Cart"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9060/api/v1/cart/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9060",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"1"
+					]
+				},
+				"description": "Fetch Cart"
+			},
+			"response": []
+		}
+	]
+}
